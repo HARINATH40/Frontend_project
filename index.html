@@ -1,0 +1,2449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TitanMode Game Site</title>
+  <link rel="stylesheet" href="css/game.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;900&display=swap" rel="stylesheet">
+
+<style>
+  /* 🎮 General Body & Header Styling */
+body {
+  background-color: #0d1117;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background: #161b22;
+  padding: 25px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #7fffd4;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px #7fffd4;
+}
+
+/* 🖼️ Gallery Section */
+.game-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 50px 20px;
+}
+
+.menu-item {
+  background: #161b22;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #fff;
+  width: 260px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px rgba(127, 255, 212, 0.2);
+  padding: 15px;
+}
+
+.menu-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.menu-item h3 {
+  margin-top: 12px;
+  font-size: 18px;
+  color: #7fffd4;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #7fffd4;
+}
+
+.menu-item:hover img {
+  transform: scale(1.08);
+}
+
+/* 🕹️ Game Details Section */
+.game-detail {
+  display: none;
+  padding: 50px 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+.game-detail:target {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.detail-img {
+  width: 600px;
+  height: 350px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-top: 20px;
+  box-shadow: 0 0 15px rgba(127, 255, 212, 0.4);
+}
+
+.game-detail h1 {
+  color: #7fffd4;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.game-detail p {
+  width: 70%;
+  margin: 30px auto;
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+/* 🔙 Back Button */
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 25px;
+  background-color: #7fffd4;
+  color: #000;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #5fd0b0;
+  box-shadow: 0 0 10px #7fffd4;
+}
+
+/* 🌟 Responsive Design */
+@media (max-width: 768px) {
+  .menu-item {
+    width: 90%;
+  }
+
+  .detail-img {
+    width: 90%;
+    height: auto;
+  }
+
+  .game-detail p {
+    width: 90%;
+  }
+}
+body {
+  background-color: #0b1221;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.subscribe-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.subscribe-section h2 {
+  color: #80f7f4;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subscribe-section p {
+  color: #a0a0a0;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.subscribe-form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.subscribe-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.subscribe-form input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #80f7f4;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.checkbox {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.subscribe-form button {
+  width: 100%;
+  background-color: #80f7f4;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  font-size: 1rem;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe-form button:hover {
+  background-color: #5de7e3;
+}
+/* ===== Footer Section ===== */
+.footer {
+  background-color: #0b1221;
+  color: #ccc;
+  padding: 60px 10%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-title {
+  color: #80f7f4;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.footer-column h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.footer-column p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 8px 0;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #80f7f4;
+}
+
+.privacy {
+  display: inline-block;
+  margin-top: 10px;
+  color: #ccc;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.privacy:hover {
+  color: #80f7f4;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.footer-bottom a {
+  color: #80f7f4;
+  text-decoration: none;
+}
+.footer-column ul.social-links {
+  display: flex;
+  gap: 20px; /* space between links */
+  list-style: none;
+  padding: 0;
+  justify-content: center; /* optional: center align */
+}
+
+.footer-column ul.social-links li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column ul.social-links li a:hover {
+  color: #80f7f4;
+}
+* 
+{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+   
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ===== Navbar ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 600;
+       color: rgba(22, 205, 181, 0.982); 
+       text-shadow: #bfdbd5;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #00ffcc;
+    }
+      .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      opacity: 0.7;
+      }
+    /* ===== Hero Section ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 0 50px;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      padding: 20px;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 15px;
+      /* color: #00ffcc; */
+      color: #000;
+      text-shadow: 0 0 10px #00ffcc;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+      line-height: 1.6;
+      /* color: #e0e0e0; */
+      color: white;
+      /* text-shadow: orangered; */
+       text-shadow: 0 0 10px navy;
+    }
+   
+
+    /* ===== Buttons ===== */
+     .btn {
+      padding: 12px 30px;
+       background-color:  lightseagreen; 
+      color: #000;
+      border: navy;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      margin-right: 15px;
+      display: inline-block;
+    }
+
+    .btn:hover {
+      background-color: rgb(12, 47, 45);
+      transform: scale(1.05);
+    }
+ 
+    .btn-outline {
+      padding: 10px 25px;
+      background: transparent;
+      color: #00ffcc74;
+      border: 2px solid #00ffccb3;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+ 
+    .btn-outline:hover {
+      background-color: #00ffccc5;
+      color: #000;
+      transform: scale(1.05);
+    } 
+
+    /* ===== Featured Section ===== */
+    .featured {
+      position: relative;
+  background: url("images/cb.jpg") no-repeat center center/cover;
+  padding: 100px 40px;
+  color: #fff;
+  text-align: center;
+      
+    }
+    
+    /* .featured div style{
+      width: 100%;
+    } */
+
+    .featured h2 {
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      /* color: #00ffcc; */
+      text-shadow: 0 0 10px #00ffcc;
+    }
+
+    .featured-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      display: inline-block;
+      width: 320px;
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
+      transition: 0.3s;
+    }
+
+    .featured-card:hover {
+      /* transform: translateY(-10px) scale(1.03); */
+      box-shadow: 0 0 25px rgba(255, 85, 0, 0.884);
+      background-color: rgba(105, 13, 62, 0.493);
+      color: antiquewhite;
+    }
+
+    .featured-card video {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .featured-card:hover video {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+    }
+
+    .featured-card h3 {
+      /* color: #00ffcc; */
+      color: goldenrod;
+      margin-bottom: 10px;
+     }
+     .featured-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      padding: 30px;
+      display: inline-block;
+      width: 320px;
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
+      transition: 0.3s;
+     } 
+
+    /* ===== Footer ===== */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+
+
+    /* 🎮 General Body & Header Styling */
+body {
+  background-color: #0d1117;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+header {
+  background: #161b22;
+  padding: 25px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #7fffd4;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px #7fffd4;
+}
+
+/* 🖼️ Gallery Section */
+.game-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 50px 20px;
+}
+
+.menu-item {
+  background: #161b22;
+  border-radius: 15px;
+  text-decoration: none;
+  color: #fff;
+  width: 260px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 0 10px rgba(127, 255, 212, 0.2);
+  padding: 15px;
+}
+
+.menu-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.menu-item h3 {
+  margin-top: 12px;
+  font-size: 18px;
+  color: #7fffd4;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #7fffd4;
+}
+
+.menu-item:hover img {
+  transform: scale(1.08);
+}
+ /* .game-menu {
+      padding: 100px 50px;
+      text-align: center;
+      
+       background-image: url('background\ 2\ nd.jpeg')
+ } */
+
+/* 🕹️ Game Details Section */
+.game-detail {
+  display: none;
+  padding: 50px 20px;
+  animation: fadeIn 0.5s ease;
+}
+
+.game-detail:target {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.detail-img {
+  width: 600px;
+  height: 350px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin-top: 20px;
+  box-shadow: 0 0 15px rgba(127, 255, 212, 0.4);
+}
+
+.game-detail h1 {
+  color: #7fffd4;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.game-detail p {
+  width: 70%;
+  margin: 30px auto;
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+/* 🔙 Back Button */
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 25px;
+  background-color: #7fffd4;
+  color: #000;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #5fd0b0;
+  box-shadow: 0 0 10px #7fffd4;
+}
+
+/* 🌟 Responsive Design */
+@media (max-width: 768px) {
+  .menu-item {
+    width: 90%;
+  }
+
+  .detail-img {
+    width: 90%;
+    height: auto;
+  }
+
+  .game-detail p {
+    width: 90%;
+  }
+}
+
+/* 3rd page design */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #0b1221;
+  color: #dcdcdc;
+  line-height: 1.7;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  /* background: url(goku.jpg) center/cover no-repeat;
+  background-attachment: fixed; */
+}
+
+.hero h1 {
+  font-size: 70px;
+  color: #7ef4e8;
+}
+
+.hero p {
+  max-width: 800px;
+  margin: 20px auto;
+  font-size: 18px;
+  color: #9bb1bd;
+}
+
+.content {
+  padding: 80px 10%;
+}
+
+.section {
+  margin-bottom: 100px;
+}
+
+.section h2 {
+  font-size: 40px;
+  color: #7ef4e8;
+  margin-bottom: 20px;
+}
+
+.section p {
+  margin-bottom: 20px;
+  font-size: 17px;
+  color: #dcdcdc;
+}
+
+.dark{
+  background: rgba(255, 255, 255, 0.05);
+  padding: 60px;
+  border-radius: 20px;
+}
+
+.join {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.join-image img {
+  width: 350px;
+  border-radius: 20px;
+}
+
+.join-text {
+  flex: 1;
+  margin-left: 50px;
+  min-width: 300px;
+}
+
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #7ef4e8;
+  color: #0b1221;
+  font-weight: bold;
+  padding: 15px 25px;
+  border-radius: 30px;
+  box-shadow: 0 0 15px rgba(126, 244, 232, 0.6);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chat-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(126, 244, 232, 0.9);
+}
+.dark:hover{
+background-color: black;
+box-shadow: 0 0 15px rgba(126, 244, 232, 0.9);
+transition: 0.3s;
+transform: scale(1.05);
+box-shadow: 0 0 25px rgba(126, 244, 232, 0.9);
+}
+#t1{
+  text-align: right;
+  margin-top: -100px;
+}
+#p1{
+  text-align: right;
+  margin-left: 50%;
+  margin-bottom: 15%;
+}
+#p1:hover{
+   transform: scale(1.05);
+  box-shadow: 0 0 25px rgb(42, 27, 82);
+  border-radius: 10%;
+}
+.section:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(126, 195, 244, 0.9);
+  border-radius: 3%;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  /* background: url('background.jpg') no-repeat center center fixed; */
+  /* background-size: cover; */
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+}
+
+/* === Image Row === */
+.image-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 90px 20px;
+}
+.sekhar{
+ color: aqua;
+}
+
+/* === Image Container === */
+.image-container {
+  position: relative;
+  width: 200px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+  transform: scale(1.05);
+}
+
+/* === Image === */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* === Description (Hover Text) === */
+.description {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.image-container:hover .description {
+  transform: translateY(0);
+}
+
+/* === Subscribe Section === */
+.subscribe-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: rgba(0,0,0,0.6); /* slightly darker for visibility */
+  border-radius: 10px;
+  margin: 40px auto;
+  max-width: 450px;
+}
+
+.subscribe-section h2 {
+  color: #80f7f4;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subscribe-section p {
+  color: #d0d0d0;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.subscribe-form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.subscribe-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.subscribe-form input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #80f7f4;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.checkbox {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.subscribe-form button:hover {
+  width: 100%;
+  background-color: #80f7f4;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  font-size: 1rem;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe-form button:hover {
+  background-color: #5de7e3;
+}
+
+/* === Footer === */
+.footer {
+  background-color: rgba(0,0,0,0.8);
+  color: #ccc;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+  transition: all 0.4s ease-in-out; /* smooth animation */
+}
+
+.footer-container:hover {
+  transform: scale(1.05); /* zooms in a bit */
+  filter: brightness(1.1); /* makes it slightly brighter */
+}
+
+.footer-column {
+  flex: 1 1 220px;
+  margin: 15px;
+}
+
+.footer-title {
+  color: #80f7f4;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.footer-column h4 {
+  color: #80f7f4;
+  margin-bottom: 10px;
+}
+
+.footer-column p,
+.footer-column a,
+.footer-column li {
+  font-size: 14px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-column ul  :hover{
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li :hover {
+  margin: 8px 0;
+}
+
+.footer-column a:hover {
+  color: #80f7f4;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #a0a0a0;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .image-row {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 10px;
+  }
+
+  .image-container {
+    width: 80%;
+    max-width: 300px;
+    height: 350px;
+  }
+
+  .subscribe-section {
+    width: 90%;
+    padding: 40px 20px;
+  }
+}
+
+
+
+
+
+
+
+body {
+  background-color: #0b1221;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.subscribe-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.subscribe-section h2 {
+  color: #80f7f4;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subscribe-section p {
+  color: #a0a0a0;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.subscribe-form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.subscribe-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.subscribe-form input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #80f7f4;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.checkbox {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.subscribe-form button {
+  width: 100%;
+  background-color: #80f7f4;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  font-size: 1rem;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe-form button:hover {
+  background-color: #5de7e3;
+}
+/* ===== Footer Section ===== */
+.footer {
+  background-color: #0b1221;
+  color: #ccc;
+  padding: 60px 10%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-title {
+  color: #80f7f4;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.footer-column h4 {
+  /* color: #fff; */
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.footer-column p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 8px 0;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #80f7f4;
+}
+
+.privacy {
+  display: inline-block;
+  margin-top: 10px;
+  color: #ccc;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.privacy:hover {
+  color: #80f7f4;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.footer-bottom a {
+  color: #80f7f4;
+  text-decoration: none;
+}
+.footer-column ul.social-links {
+  display: flex;
+  gap: 20px; /* space between links */
+  list-style: none;
+  padding: 0;
+  justify-content: center; /* optional: center align */
+}
+
+.footer-column ul.social-links li a {
+  color: #ccc; */
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column ul.social-links li a:hover {
+   color: #80f7f4; */
+}
+.company{
+  padding-right: 10px;
+}
+/* === Background Settings === */
+ /* body {
+  margin: 0;
+  padding: 0;
+  background: url('background1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+  color: white;
+} */ */
+
+/* === Image Row === */
+ /* .image-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 90px;
+} */ */
+
+/* === Image Container === */
+ /* .image-container {
+  position: relative;
+  width: 200px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+  transform: scale(1.05); */ */
+/* } */
+
+/* === Image === */
+ /* .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+} */ */
+
+/* === Description (Hover Text) === */
+ /* .description {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.image-container:hover .description {
+  transform: translateY(0);
+}
+
+
+body {
+  background-color: #0b1221;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+}
+
+.subscribe-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.subscribe-section h2 {
+  color: #80f7f4;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subscribe-section p {
+  color: #a0a0a0;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.subscribe-form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.subscribe-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.subscribe-form input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #80f7f4;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.checkbox {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.subscribe-form button {
+  width: 100%;
+  background-color: #80f7f4;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  font-size: 1rem;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe-form button:hover {
+  background-color: #5de7e3;
+} */
+/* ===== Footer Section ===== */
+/* .footer {
+  background-color: #0b1221;
+  color: #ccc;
+  padding: 100px 10%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-title {
+  color: #80f7f4;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+} */
+
+/* .footer-column h4 {
+  color: #fff;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.footer-column p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 8px 0;
+} */
+
+/* .footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #80f7f4;
+}
+
+.privacy {
+  display: inline-block;
+  margin-top: 10px;
+  color: #ccc;
+  font-size: 0.9rem;
+  text-decoration: none;
+} */
+
+/* .privacy:hover {
+  color: #80f7f4;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #222;
+  padding-top: 20px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.footer-bottom a {
+  color: #80f7f4;
+  text-decoration: none;
+} */
+/* .footer-column ul.social-links {
+  display: flex;
+  gap: 20px; space between links
+  list-style: none;
+  padding: 0;
+  justify-content: center; optional: center align
+} */
+
+/* .footer-column ul.social-links li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column ul.social-links li a:hover {
+  color: #80f7f4;
+}
+ */ */
+
+
+
+
+
+ /* General Styles */
+/* body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0c0c0c;
+  color: #fff;
+} */
+
+/* Subscribe Section */
+/* .subscribe-section {
+  background: #1a1a1a;
+  text-align: center;
+  padding: 60px 20px;
+  max-width: 500px;
+  margin: 80px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.subscribe-section h2 {
+  margin-bottom: 10px;
+  font-size: 28px;
+  color: #ffcc00;
+}
+
+.subscribe-section p {
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.subscribe-form {
+  display: inline-block;
+  max-width: 350px;
+  width: 100%;
+}
+
+.subscribe-form input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+}
+
+.subscribe-form .checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.subscribe-form .checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+
+.subscribe-form .checkbox label {
+  text-align: left;
+  font-size: 14px;
+  color: #fff;
+}
+
+.subscribe-form .next-btn {
+  width: 100%;
+  padding: 12px 20px;
+  background-color: #ffcc00;
+  color: #000;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe-form .next-btn:hover {
+  background-color: #e6b800;
+}
+
+/* Responsive */
+/* @media (max-width: 768px) {
+  .subscribe-section {
+    width: 90%;
+    padding: 40px 20px;
+  }
+
+  .subscribe-form input[type="email"] {
+    font-size: 16px;
+  }
+
+  .subscribe-form .checkbox label {
+    font-size: 15px;
+  }
+}
+ */ */
+
+
+
+ /* === Body & Background === */
+/* body {
+  margin: 0;
+  padding: 0;
+  background: url('background1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+} */
+
+/* === Image Row === */
+/* .image-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 90px 20px;
+} */
+
+/* === Image Container === */
+/* .image-container { */
+  /* position: relative;
+  width: 200px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+  transform: scale(1.05);
+} */
+
+/* === Image === */
+/* .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+} */
+
+/* === Description (Hover Text) === */
+/* .description {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.image-container:hover .description {
+  transform: translateY(0);
+} */
+
+/* === Subscribe Section (Page 1: Email Only) === */
+/* .subscribe-section {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.subscribe-section h2 {
+  color: #80f7f4;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subscribe-section p {
+  color: #a0a0a0;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.subscribe-form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.subscribe-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.subscribe-form input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #80f7f4;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+} */
+
+/* === Next Button === */
+/* .subscribe-form button {
+  width: 100%;
+  background-color: #80f7f4;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  font-size: 1rem;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe-form button:hover {
+  background-color: #5de7e3;
+} */
+
+/* === Checkbox Section (Page 2) === */
+/* .checkbox-page {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.checkbox-page h2 {
+  color: #80f7f4;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.checkbox-page p {
+  color: #a0a0a0;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.checkbox-form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox-form button {
+  width: 100%;
+  background-color: #80f7f4;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  font-size: 1rem;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.checkbox-form button:hover {
+  background-color: #5de7e3;
+}
+
+/* === Footer === */
+/* .footer {
+  background-color: rgba(0,0,0,0.9);
+  color: #ccc;
+  padding: 40px 20px;
+} */
+
+/* .footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1 1 220px;
+  margin: 15px;
+}
+
+.footer-title {
+  color: #80f7f4;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.footer-column h4 {
+  color: #80f7f4;
+  margin-bottom: 10px;
+} */
+
+/* .footer-column p,
+.footer-column a,
+.footer-column li {
+  font-size: 14px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 8px 0;
+}
+
+.footer-column a:hover {
+  color: #80f7f4;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #a0a0a0;
+} */ */
+
+/* === Responsive === */
+/* @media (max-width: 768px) {
+  .image-row {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 10px;
+  }
+
+  .image-container {
+    width: 80%;
+    max-width: 300px;
+    height: 350px;
+  }
+
+  .subscribe-section,
+  .checkbox-page {
+    width: 90%;
+    padding: 40px 20px;
+  }
+} */
+
+
+
+
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background: url('background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+}
+
+/* === Image Row === */
+.image-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 90px 20px;
+}
+
+/* === Image Container === */
+.image-container {
+  position: relative;
+  width: 200px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+  transform: scale(1.05);
+}
+
+/* === Image === */
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* === Description (Hover Text) === */
+.description {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  text-align: center;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.image-container:hover .description {
+  transform: translateY(0);
+}
+
+/* === Subscribe Section === */
+.subscribe-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: rgba(0,0,0,0.6); /* slightly darker for visibility */
+  border-radius: 10px;
+  margin: 40px auto;
+  max-width: 450px;
+}
+
+.subscribe-section h2 {
+  color: #80f7f4;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.subscribe-section p {
+  color: #d0d0d0;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.subscribe-form {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.subscribe-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.subscribe-form input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #80f7f4;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.checkbox {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.subscribe-form button {
+  width: 100%;
+  background-color: #80f7f4;
+  border: none;
+  padding: 12px;
+  border-radius: 30px;
+  font-size: 1rem;
+  color: #000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe-form button:hover {
+  background-color: #5de7e3;
+}
+
+/* === Footer === */
+.footer {
+  background-color: rgba(0,0,0,0.8);
+  color: #ccc;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.footer-column {
+  flex: 1 1 220px;
+  margin: 15px;
+}
+
+.footer-title {
+  color: #80f7f4;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.footer-column h4 {
+  color: #80f7f4;
+  margin-bottom: 10px;
+}
+
+.footer-column p,
+.footer-column a,
+.footer-column li {
+  font-size: 14px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 8px 0;
+}
+
+.footer-column a:hover {
+  color: #80f7f4;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #a0a0a0;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .image-row {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 10px;
+  }
+
+  .image-container {
+    width: 80%;
+    max-width: 300px;
+    height: 350px;
+  }
+
+  .subscribe-section {
+    width: 90%;
+    padding: 40px 20px;
+  }
+}* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #0b1221;
+  color: #dcdcdc;
+  line-height: 1.7;
+}
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: url(goku.jpg) center/cover no-repeat;
+  background-attachment: fixed;
+}
+
+.hero h1 {
+  font-size: 70px;
+  color: #7ef4e8;
+}
+
+.hero p {
+  max-width: 800px;
+  margin: 20px auto;
+  font-size: 18px;
+  color: #9bb1bd;
+}
+
+.content {
+  padding: 80px 10%;
+}
+
+.section {
+  margin-bottom: 100px;
+}
+
+.section h2 {
+  font-size: 40px;
+  color: #7ef4e8;
+  margin-bottom: 20px;
+}
+
+.section p {
+  margin-bottom: 20px;
+  font-size: 17px;
+  color: #dcdcdc;
+}
+
+.dark{
+  background: rgba(255, 255, 255, 0.05);
+  padding: 60px;
+  border-radius: 20px;
+}
+
+.join {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.join-image img {
+  width: 350px;
+  border-radius: 20px;
+}
+
+.join-text {
+  flex: 1;
+  margin-left: 50px;
+  min-width: 300px;
+}
+
+.chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #7ef4e8;
+  color: #0b1221;
+  font-weight: bold;
+  padding: 15px 25px;
+  border-radius: 30px;
+  box-shadow: 0 0 15px rgba(126, 244, 232, 0.6);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.chat-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(126, 244, 232, 0.9);
+}
+.dark:hover{
+background-color: black;
+box-shadow: 0 0 15px rgba(126, 244, 232, 0.9);
+transition: 0.3s;
+transform: scale(1.05);
+box-shadow: 0 0 25px rgba(126, 244, 232, 0.9);
+}
+#t1{
+  text-align: right;
+  margin-top: -100px;
+}
+#p1{
+  text-align: right;
+  margin-left: 50%;
+  margin-bottom: 15%;
+}
+#p1:hover{
+   transform: scale(1.05);
+  box-shadow: 0 0 25px rgb(42, 27, 82);
+  border-radius: 10%;
+}
+.section:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(126, 195, 244, 0.9);
+  border-radius: 3%;
+}
+</style>
+</head>
+<body>
+
+  
+
+
+  <!-- ===== Navbar ===== -->
+  <nav class="navbar">
+    <div class="logo">🎮 TitanMode</div>
+    <div class="nav-links">
+      <a href="#hussain" class="active">Home</a>
+      <a href="#harinath">Games</a>
+      <a href="#sai">Company</a>
+      <a href="#ram">Spirit</a>
+      <a href="#Naresh">Contact</a>
+    </div>
+  </nav>
+  <div id="hussain">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="videos/backb.mp4" type="video/mp4">
+    <!-- Your browser does not support the video tag. -->
+  </video>
+
+  <!-- ===== Hero Section ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Join the Game</h1>
+      <p>Step into the world of TitanMode — play like a giant. Rule like a legend.</p>
+      <a href="#getstarted" class="btn">Watch Trailers</a>
+      
+    </div>
+  </section>
+
+  <!-- ===== Featured Section ===== -->
+
+  <section class="featured" id="getstarted" style="background-image: url(images/back2.jpg);">
+
+  <h2>Trailers</h2>
+
+  <div class="featured-card">
+    <video src="videos/videogame.mp4" controls loop muted playsinline></video>
+    <h3>Ninja</h3>
+    <p>Swipe like a ninja-play like a friend</p>
+  </div>
+
+  <div class="featured-card">
+    <video src="videos/pubg.mp4" controls loop muted playsinline></video>
+    <h3>PUBG</h3>
+    <p>Only the strongest survive.</p>
+  </div>
+
+  <div class="featured-card">
+    <video src="videos/p.mp4" controls loop muted playsinline></video>
+    <h3>Prince of Persia</h3>
+    <p>Run, fight, and master the sands.</p>
+  </div>
+
+  <div class="featured-card">
+    <video src="videos/c.mp4" controls loop muted playsinline></video>
+    <h3>Car Race</h3>
+    <p>Drive hard. Finish first.</p>
+  </div>
+
+  <div class="featured-card">
+    <video src="videos/g.mp4" controls loop muted playsinline></video>
+    <h3>God of War</h3>
+    <p>The Courage Within.</p>
+  </div>
+
+</section>
+
+
+  <!-- ===== Footer ===== -->
+  <!-- <footer class="footer">
+    &copy; 2025 TitanMode. All rights reserved.
+  </footer>
+  </div> -->
+
+<!-- gamese -->
+
+<div id="harinath" style="background-image: url(images/gmi.jpg);">
+  <h1>Game Gallery</h1>
+  <!-- 🎯 Game Gallery Section -->
+  <section class="game-menu" id="gallery">
+
+    <a href="#car" class="menu-item">
+      <img src="images/R34.jpg" alt="Car Racing" />
+      <h3>Car Racing</h3>
+    </a>
+
+    <a href="#pubg" class="menu-item">
+      <img src="images/Pubg Mobile.jpg" alt="PUBG" />
+      <h3>PUBG</h3>
+    </a>
+
+    <a href="#ninja" class="menu-item">
+      <img src="images/Ninja_Girl.jpg" alt="Ninja Warrior" />
+      <h3>Ninja Warrior</h3>
+    </a>
+
+    <a href="#prince" class="menu-item">
+      <img src="images/Prince.jpg.jpg" alt="Prince of Persia" />
+      <h3>Prince of Persia</h3>
+    </a>
+
+    <a href="#storm" class="menu-item">
+      <img src="images/storm.jpg.jpg" alt="Storm Blades" />
+      <h3>Storm Blades</h3>
+    </a>
+
+  </section>
+  </div>
+
+  <!-- Car Racing -->
+  <section id="car" class="game-detail">
+    <h1> Car Racing</h1>
+    <img src="images/R34.jpg" alt="Car Racing" class="detail-img" />
+    <p>
+      Experience high-speed racing with realistic physics and stunning visuals.
+      Compete on thrilling tracks, unlock new cars, and push your driving skills to the limit.
+    </p>
+    <a href="#gallery" class="back-btn">← Back to Gallery</a>
+  </section>
+
+  <!--  PUBG -->
+  <section id="pubg" class="game-detail">
+    <h1> PUBG</h1>
+    <img src="images/Pubg Mobile.jpg" alt="PUBG" class="detail-img" />
+    <p>
+      Battle for survival in this action-packed multiplayer shooter. 
+      Loot, strategize, and outlast everyone to be the last one standing.
+    </p>
+    <a href="#gallery" class="back-btn">Back to Gallery</a>
+  </section>
+
+  <!--  Ninja Warrior -->
+  <section id="ninja" class="game-detail">
+    <h1> Ninja Warrior</h1>
+    <img src="images/Ninja_Girl.jpg" alt="Ninja Warrior" class="detail-img" />
+    <p>
+      Step into the shadows and unleash your inner ninja! 
+      Use stealth, agility, and combat mastery to conquer your enemies.
+    </p>
+    <a href="#gallery" class="back-btn">Back to Gallery</a>
+  </section>
+
+  <!--  Prince of Persia -->
+  <section id="prince" class="game-detail">
+    <h1> Prince of Persia</h1>
+    <img src="images/Prince.jpg.jpg" alt="Prince of Persia" class="detail-img" />
+    <p>
+      Embark on an epic journey through ancient Persia. 
+      Master acrobatics, battle dark forces, and rewrite destiny.
+    </p>
+    <a href="#gallery" class="back-btn">Back to Gallery</a>
+  </section>
+
+  <!--  Storm Blades -->
+  <section id="storm" class="game-detail">
+    <h1>Storm Blades</h1>
+    <img src="images/storm.jpg.jpg" alt="Storm Blades" class="detail-img" />
+    <p>
+      Slash your way through mystical ruins! 
+      Unleash powerful combos and face epic guardians in a fast-paced action world.
+    </p>
+    <a href="#gallery" class="back-btn"> Back to Gallery</a>
+  </section>
+
+
+
+  <!-- company -->
+   
+<div id="sai"></div>
+<header class="hero" style="background-image: url(images/goku.jpg);">
+    <h1 id="t1" style="color: orangered;" >Company</h1>
+    <div id="p1"><p style="color: gold;">This is the space to introduce visitors to the business or brand. Briefly explain who's behind it,
+      what it does, and what makes it unique. Share its core values and what this site has to offer.
+    </p></div>
+  </header>
+
+  <section class="content">
+    <div class="section">
+      <h2>What We Do</h2>
+      <p>This is a space to share more about the business. Take advantage of this long text to tell people
+        who's behind it, what it does, how it began, and other details. It's an excellent place to share
+        the story behind the business and describe what this site has to offer its visitors.
+      </p>
+      <p>You can write about the business's history here, from its founding until now. Draw readers in with
+        an engaging narrative. By telling its story, you can help people connect to the business. Share
+        what inspired its creation and what need it was meant to fill. You can include details of the
+        obstacles it overcame to get where it is today.
+      </p>
+    </div>
+
+    <div class="section dark">
+      <h2>Our Vision</h2>
+      <p>This is a space to share more about the business. Take advantage of this long text to tell people
+        who's behind it, what it does, how it began, and other details. It's an excellent place to share
+        the story behind the business and describe what this site has to offer its visitors.
+      </p>
+      <p>This space is also a good spot to talk about a particular feature of the business that sets it apart
+        from its competitors. Explain to readers what makes this business unique and why they should choose
+        it over other options. Focus on the value this business can offer its users.
+      </p>
+    </div>
+
+    <div class="section join">
+      <div class="join-image">
+        <img src="retro-digital-art-illustration-person-using-radio-technology.jpg" alt> 
+      </div>
+      <div class="join-text">
+        <h2>Join Us</h2>
+        <p>This is the space to tell people about an open position at the business. Describe the role and its
+          responsibilities. Let people know what the business is looking for in candidates: experience,
+          personality, education, certifications, or other requirements.
+        </p>
+        <p>List the benefits that come with the job and tell people why joining the team is a good idea.
+          Encourage interested readers to apply for the position.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- <div class="chat-button"> -->
+    <!--  -->
+  <!-- </div> -->
+<!-- https://cdn3d.iconscout.com/3d/premium/thumb/futuristic-robot-head-7711257-6162753.png -->
+
+
+<!-- 4rth design -->
+  <section class="featured" id="getstarted" style="background-image: url(images/spirt\ image.jpeg);">
+
+<div id="ram">
+  <h2 class="sekhar">Our Real Life Spirit</h2>
+<div></div>
+<div class="image-row">
+
+
+    <div class="image-container">
+      <img src="images/ninja3.jpg" alt="Ninja">
+      <div class="description">
+        I am Ramalakshmi. I am like a ninja in real life — calm, focused, and brave. I face every challenge with confidence and never show fear. I keep learning, stay disciplined, and work hard every single day. Even when no one is watching, I give my best and never give up
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img src="images/WhatsApp Image 2025-10-16 at 18.41.51_4ba89405.jpg" alt="Samurai">
+      <div class="description">
+        I am Sai Suprith Adithya with a mindset of disciplined samurai — calm, focused, and honorable. Going to face the problems with courage and skill which I gained through hard work and faith in order to maintain peace in mind and world.
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img src="images/prince.jpeg" alt="Warrior">
+      <div class="description">
+        I am Hussain. Under the bright moon, I stand ready to protect my land. I may be alone, but I have the strength and courage to change the fate of Persia.
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img src="images/pubg1.jpg" alt="PUBG">
+      <div class="description">
+        I am Naresh, a brave fighter in the game. Like a soldier, I stay calm and ready for action. I move carefully, like a police officer on duty. I face enemies with courage, just like real-life heroes. My goal is to survive and win.
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img src="images/cars.jpg" alt="Car">
+      <div class="description">
+        I am Harinath in a world full of lights and speed. The night sky shines above me. My car roars as I race through the streets. The road is mine, and nothing can stop me. I feel powerful, fast, and free.
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+  
+
+
+  <section class="featured" id="getstarted" style="background-image: url(images/contact\ image.jpeg);">
+
+
+<div id="Naresh">
+  <h1>contact</h1>
+  <section class="subscribe-section">
+  <h2>Subscribe</h2>
+  <p>Be the first to know about new games, exclusive previews & special promotions</p>
+  
+  <form class="subscribe-form">
+    <label for="email">Email Address *</label><br>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required><br>
+    
+    <div class="checkbox">
+      <input type="checkbox" id="newsletter" name="newsletter">
+      <label for="newsletter">Yes, subscribe me to your newsletter.</label>
+    </div>
+    
+    <button type="submit">Submit</button>
+  </form>
+</section>
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- 1️⃣ Company Info -->
+    <div class="footer-column">
+      <h3 class="footer-title">TitanMode</h3>
+      <p class="Company">
+        This is the space to share the business's contact information. Let people know when the business
+        is available, how long it will take to get a response, and what the best ways are to get in touch.
+      </p>
+      <a href="#" class="privacy">Privacy Policy</a>
+    </div>
+
+    <!-- 2️⃣ Contact Info -->
+    <div class="footer-column">
+      <h4>Contact</h4>
+      <p>500 Terry Francine Street,<br>
+         San Francisco, CA 94158<br>
+         info@mysite.com<br>
+         Tel: 123-456-7890
+      </p>
+    </div>
+
+    <!-- 3️⃣ Quick Menu -->
+    <div class="footer-column">
+      <h4>Quick Menu</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Games</a></li>
+        <li><a href="#">Company</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul> 
+    </div>
+
+    <!-- 4️⃣ Social Links -->
+    <div class="footer-column">
+      <h4>Socials</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">X</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+  <!-- Copyright -->
+  <div class="footer-bottom">
+    <!-- <p>© 2035 by TatinMOde. Made with <a href="#">Wix Studio™</a></p> -->
+  </div>
+</footer>
+</div>
+</body>
+</html>
+
+
+
+
+
+
